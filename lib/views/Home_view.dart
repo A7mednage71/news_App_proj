@@ -18,6 +18,8 @@ class Home_newss extends StatelessWidget {
     containt1(name: 'Entertainment', image: 'assets/entertaiment.avif'),
   ];
 
+  static String id = 'Ben_Nageh';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

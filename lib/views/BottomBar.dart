@@ -42,7 +42,7 @@ class HomeBottomBar extends StatelessWidget {
                     Icons.search,
                     color: Color(0xffBB3EED),
                   ),
-                  wid: SearchScreen(),
+                  
                 ),
                 bottomdownpar(
                   txt: 'ٍSettings',

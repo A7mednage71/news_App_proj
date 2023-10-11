@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newwws_proj/views/SearchScreen.dart';
 
 class bottomdownpar extends StatelessWidget {
   const bottomdownpar(
@@ -7,6 +8,7 @@ class bottomdownpar extends StatelessWidget {
   final String txt;
   final Icon icon;
   final Widget? wid;
+
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -16,13 +18,17 @@ class bottomdownpar extends StatelessWidget {
         children: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext) {
-                      return wid!;
-                    },
-                  ),
-                );
+                if (wid == null) {
+                  showSearch(context: context, delegate: Searchdata());
+                } else {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext) {
+                        return wid!;
+                      },
+                    ),
+                  );
+                }
               },
               icon: icon),
           Text(txt),
