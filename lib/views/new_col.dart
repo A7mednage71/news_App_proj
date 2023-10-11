@@ -29,7 +29,6 @@ class news_coulmn extends StatelessWidget {
                       height: 200,
                       fit: BoxFit.fill,
                       width: double.infinity,
-                      //'https://cnn-arabic-images.cnn.io/cloudinary/image/upload/w_1920,c_scale,q_auto/cnnarabic/2023/09/23/images/250190.avif',
                     )
                   : Image.asset('assets/sports.avif'),
             ),
@@ -60,5 +59,6 @@ class news_coulmn extends StatelessWidget {
         ),
       ),
     );
+
   }
 }

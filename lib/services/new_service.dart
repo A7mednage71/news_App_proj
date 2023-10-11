@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:newwws_proj/models/article.dart';
+import 'package:newwws_proj/models/news_response.dart';
 
 class New_service {
   New_service(this.dio);
@@ -28,6 +29,30 @@ class New_service {
       return Article_list;
     } on Exception {
       return [];
+    }
+  }
+
+  static Future<NewsResponse> searchNews({required String search}) async {
+    final dio = Dio();
+
+    try {
+      final response = await dio.get(
+        "https://newsapi.org/v2/everything",
+        queryParameters: {
+          "apiKey": "3dc1a015e3fb4542841c216c09e0c6bc",
+          "q": search,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final json = response.data;
+        final searchResponse = NewsResponse.fromJson(json);
+        return searchResponse;
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      throw Exception('Failed to load data: $e');
     }
   }
 }
